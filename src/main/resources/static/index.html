@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>AIM Study Circle</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e6f5b'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Arial, sans-serif' font-size='28' font-weight='700' fill='white'%3EA%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header class="top-nav">
+    <div class="logo-box">
+      <img src="a-i-m-high-resolution-logo-transparent.png" alt="AIM Logo" class="nav-logo">
+    </div>
+    <ul class="nav-menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li class="dropdown">
+        <a href="#about">About Us ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="#about">Our Vision</a></li>
+          <li><a href="#faculty">Our Faculty</a></li>
+        </ul>
+      </li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li class="dropdown">
+        <a href="#">Testimonials ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="#testimonials">What Students Say</a></li>
+          <li><a href="#parents">Proud Parents</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+    <div class="nav-user">
+      <button class="logout-btn" id="loginBtn">
+        <span class="btn-text">Login</span>
+        <span class="btn-icon">🚪</span>
+      </button>
+    </div>
+  </header>
+  <!--hero-->
+  <section class="hero-slider" id="home">
+
+    <div class="hero-slide active">
+      <div class="hero-left">
+        <h4>Group B</h4>
+        <h1>Banking(SBI/IBPS PO & Clerk, RBI Grade B)</h1>
+        <button onclick="window.location.href='login.html'">Enroll Now</button>
+      </div>
+      <div class="hero-right">
+        <img src="https://i.pinimg.com/1200x/99/10/88/991088f5cc292e4ed67f4ce43752a8f0.jpg" />
+      </div>
+    </div>
+
+    <div class="hero-slide">
+      <div class="hero-left">
+        <h4>Group B & C posts.</h4>
+        <h1>SSC (CGL, CHSL, MTS)</h1>
+        <button onclick="window.location.href='login.html'">Enroll Now</button>
+      </div>
+      <div class="hero-right">
+        <img src="https://i.pinimg.com/1200x/a9/17/94/a917945ff4111285412343bddd0bd028.jpg" />
+      </div>
+    </div>
+
+    <div class="hero-slide">
+      <div class="hero-left">
+        <h4>group D</h4>
+        <h1>Railway (RRB NTPC, Group D, JE)</h1>
+        <button onclick="window.location.href='login.html'">Enroll now</button>
+      </div>
+      <div class="hero-right">
+        <img src="https://i.pinimg.com/1200x/25/b0/ca/25b0cad8763ec38840c3f2f6da95c614.jpg" />
+      </div>
+    </div>
+
+    <div class="hero-slide">
+      <div class="hero-left">
+        <h4>Proven Results</h4>
+        <h1>Defence (NDA, CDS, AFCAT, CAPF)</h1>
+        <button onclick="window.location.href='login.html'">Enroll Now</button>
+      </div>
+      <div class="hero-right">
+        <img src="https://i.pinimg.com/1200x/64/fd/19/64fd196fb24ba6970682ce444ce2651d.jpg" />
+      </div>
+    </div>
+
+    <div class="hero-slide">
+      <div class="hero-left">
+        <h4>State Police Exams</h4>
+        <h1>State Police Exams(SI, Constable, DSP)</h1>
+        <button onclick="window.location.href='login.html'">Enroll Now</button>
+      </div>
+      <div class="hero-right">
+        <img src="https://i.pinimg.com/736x/a0/d6/3e/a0d63ed828eddf133a564f1b7a4ca584.jpg" />
+      </div>
+    </div>
+
+    <!-- Arrows -->
+    <span class="arrow left" onclick="prevSlide()">❮</span>
+    <span class="arrow right" onclick="nextSlide()">❯</span>
+  </section>
+  <!--courses-->
+  <section class="courses-section" id="courses">
+    <h2 class="section-title">Courses</h2>
+
+    <div class="course-grid">
+      <!-- CARD 1 -->
+      <div class="course-card">
+        <img src="https://i.pinimg.com/1200x/fe/c0/81/fec081469d4bc03e66c813538b46e09b.jpg" alt="NCERT Course" />
+        <h3>Banking(Grade B)</h3>
+        <p>
+          offer stable, high-reputation careers in finance, focusing on customer service, financial management, and
+          economic regulation
+        </p>
+        <button onclick="window.location.href='banking.html'">Know More</button>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="course-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO9O7rZVq_A6ySuk2D2MSkgbg8XkMqjDz7pA&s"
+          alt="IAS Preparation" />
+        <h3>SSC(group B & C)</h3>
+        <p>
+          conducts various national-level exams to recruit staff for Group B and Group C posts in central government
+          ministries, departments, and offices
+        </p>
+        <button onclick="window.location.href='ssc.html'">Know More</button>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="course-card">
+        <img src="https://i.pinimg.com/736x/09/fa/a8/09faa8eba85f7924cec3f0b64a794a15.jpg" />
+        <h3>Indian Railways</h3>
+        <p>
+          Indian Railways offers a vast array of job opportunities categorized by education level, technical skills, and
+          management level (Groups A, B, C, and D)
+        </p>
+        <button onclick="window.location.href='railway.html'">Know More</button>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="course-card">
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/034/090/104/non_2x/patrolling-the-pixels-police-officer-artistry-badge-of-honor-police-officer-art-vector.jpg"
+          alt="IAS Preparation" />
+        <h3>SI/CONSTABLE</h3>
+        <p>
+          If it is your dream to join the police force, we will help you turn it into a reality with our best SI
+          Constable coaching.
+        </p>
+        <button onclick="window.location.href='siconstable.html'">Know More</button>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="course-card">
+        <img src="https://indianmasterminds.com/wp-content/uploads/2025/05/Indian-Forest-Services-IFS-officer.jpeg"
+          alt="IFS Officer" />
+        <h3>IFS Officer</h3>
+        <p>
+          Designed to prepare IFS candidates by developing skills, knowledge
+          and confidence to succeed in competitive exams.
+        </p>
+        <button onclick="window.location.href='forest.html'">Know More</button>
+      </div>
+    </div>
+  </section>
+  <!--about us-->
+  <section class="about-section" id="about">
+    <div class="about-container">
+      <!-- LEFT IMAGE -->
+      <div class="about-image">
+        <div class="circle-bg">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAj6xwL1BKAVmq6477d2w60qz7Yks2W0SUcA&s"
+            alt="About AIM Study Circle" />
+        </div>
+      </div>
+
+      <!-- RIGHT CONTENT -->
+      <div class="about-content">
+        <h2>About Us</h2>
+        <p>
+          AIM Study Circle, situated in our region, follows a strategic and
+          student-centric approach to guide aspirants preparing for Civil
+          Services and competitive examinations.
+          <br /><br />
+          Our primary focus is the holistic development of each student
+          through personalized mentorship, expert faculty guidance, and
+          innovative teaching methods. We provide structured learning
+          resources, continuous evaluation, and motivation to build confidence
+          and ensure success.
+        </p>
+      </div>
+    </div>
+
+    <!-- ===== ABOUT STATS ===== -->
+    <div class="about-stats">
+      <div class="stat-card">
+        <h2 class="count" data-target="15">0</h2>
+        <p>Years of Experience</p>
+      </div>
+
+      <div class="stat-card">
+        <h2 class="count" data-target="30">0</h2>
+        <p>Experienced Faculty</p>
+      </div>
+
+      <div class="stat-card">
+        <h2 class="count" data-target="2000">0</h2>
+        <p>Officers Qualified</p>
+      </div>
+
+      <div class="stat-card">
+        <h2 class="count" data-target="10000">0</h2>
+        <p>Happy Students</p>
+      </div>
+    </div>
+    <section class="rankers-section">
+      <h2 class="section-title">Top Rankers</h2>
+
+      <div class="rankers-grid">
+        <div class="ranker-card">
+          <div class="ranker-img">
+            <img src="https://i.pinimg.com/1200x/31/85/27/318527f0fee63a98a9f2a637c474b5da.jpg" />
+          </div>
+          <h3>Amar Verma</h3>
+          <p>Air 250</p>
+          <span>UPSC</span>
+        </div>
+
+        <div class="ranker-card">
+          <div class="ranker-img">
+            <img src="https://i.pinimg.com/1200x/4d/5c/f5/4d5cf59e86706057305fa207d002cc62.jpg" />
+          </div>
+          <h3>Rishab Goel</h3>
+          <p>Air 18</p>
+          <span>UPSC</span>
+        </div>
+
+        <div class="ranker-card">
+          <div class="ranker-img">
+            <img src="https://i.pinimg.com/736x/46/75/a8/4675a8f744a3ce0895c6d6533c8ba7b3.jpg" />
+          </div>
+          <h3>Kuldeep Singh</h3>
+          <p>Air 358</p>
+          <span>UPSC</span>
+        </div>
+
+        <div class="ranker-card">
+          <div class="ranker-img">
+            <img src="https://i.pinimg.com/736x/bd/68/61/bd68611c6a95309285ade6356ae219d3.jpg" />
+          </div>
+          <h3>Kasturi Iyer</h3>
+          <p>Air 70</p>
+          <span>HAS</span>
+        </div>
+
+        <div class="ranker-card">
+          <div class="ranker-img">
+            <img src="https://i.pinimg.com/1200x/da/12/60/da1260c2e16ba97def338a3ab7b153e2.jpg" />
+          </div>
+          <h3>Shubham Parab</h3>
+          <p>Air 125</p>
+          <span>UPSC</span>
+        </div>
+      </div>
+    </section>
+    <section class="founder-section">
+      <div class="founder-container">
+        <div class="founder-content">
+          <h2>Our Founder</h2>
+          <h3>Mr. Vikram Singh</h3>
+          <span>Director & Founder</span>
+
+          <p>
+            With over a decade of teaching experience, we ensure that students
+            are nurtured to fulfill their professional goals. Our primary
+            objective is to provide a comprehensive mentoring platform that
+            empowers aspirants throughout their preparation journey.
+          </p>
+        </div>
+
+        <div class="founder-image">
+          <img src="https://i.pinimg.com/736x/8d/90/98/8d90987af9e8b4dff950a0ac5f42357f.jpg" />
+        </div>
+      </div>
+    </section>
+  </section>
+  <!-- FACULTY -->
+  <section class="faculty-section">
+    <h2 class="section-title">Faculty Panel</h2>
+
+    <!-- ROW 1 -->
+    <div class="faculty-marquee marquee-left">
+      <div class="faculty-track">
+        <!-- CARD -->
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+1&background=random" />
+          </div>
+          <h4>Naidu Sir</h4>
+          <p>Arithmetic & Maths</p>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+2&background=random" />
+          </div>
+          <h4>Srikanth Sir</h4>
+          <p>Arithmetic & Maths</p>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+3&background=random" />
+          </div>
+          <h4>Dhanaraj Sir</h4>
+          <p>Reasoning</p>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+4&background=random" />
+          </div>
+          <h4>Ramesh Naidu Sir</h4>
+          <p>Reasoning</p>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+5&background=random" />
+          </div>
+          <h4>Chaitanya Sir</h4>
+          <p>Reasoning</p>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+6&background=random" />
+          </div>
+          <h4>Mahipal Reddy Sir</h4>
+          <p>GK & CA</p>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+7&background=random" />
+          </div>
+          <h4>Naveen Sir</h4>
+          <p>English</p>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+8&background=random" />
+          </div>
+          <h4>KVR Sir</h4>
+          <p>English</p>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+9&background=random" />
+          </div>
+          <h4>Suresh Sir</h4>
+          <p>English</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 2 -->
+    <div class="faculty-marquee marquee-right">
+      <div class="faculty-track">
+        <!-- NEXT 9 -->
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+10&background=random" />
+          </div>
+          <h4>Shivaraj Sir</h4>
+          <p>Polity</p>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+11&background=random" />
+          </div>
+          <h4>Naga Raj Sir</h4>
+          <p>History</p>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+12&background=random" />
+          </div>
+          <h4>Gowri Naidu Sir</h4>
+          <p>History</p>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+13&background=random" />
+          </div>
+          <h4>P.T Reddy Sir</h4>
+          <p>Geography</p>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+14&background=random" />
+          </div>
+          <h4>Ramesh Sir</h4>
+          <p>Geography</p>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+15&background=random" />
+          </div>
+          <h4>Yerri Naidu Sir</h4>
+          <p>Economy</p>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+16&background=random" />
+          </div>
+          <h4>Amma Naresh Sir</h4>
+          <p>Biology</p>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+17&background=random" />
+          </div>
+          <h4>Sivayya Sir</h4>
+          <p>Chemistry</p>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-img">
+            <img src="https://ui-avatars.com/api/?name=Faculty+18&background=random" />
+          </div>
+          <h4>Suresh Sir</h4>
+          <p>Physics</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--studentsays-->
+  <section class="testimonials-section">
+    <!-- STUDENTS -->
+    <h2 class="section-title">What Students Say</h2>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <img src="https://ui-avatars.com/api/?name=Student+1&background=random" />
+        <h4>Rajat Vora</h4>
+        <p>
+          I am immensely grateful to the faculty members for their invaluable
+          guidance and unwavering support throughout my UPSC preparation
+          journey.
+        </p>
+      </div>
+
+      <div class="testimonial-card active">
+        <img src="https://ui-avatars.com/api/?name=Student+2&background=random" />
+        <h4>Akash Singh</h4>
+        <p>
+          My sincere gratitude to the mentors who assisted me throughout my
+          Mains and Interview preparation. Their support was invaluable.
+        </p>
+      </div>
+
+      <div class="testimonial-card">
+        <img src="https://ui-avatars.com/api/?name=Student+3&background=random" />
+        <h4>Ravi Verma</h4>
+        <p>
+          The classes have been instrumental in shaping my UPSC journey. I
+          will forever cherish their support and guidance.
+        </p>
+      </div>
+    </div>
+
+    <!-- PARENTS -->
+    <section class="parents-slider">
+      <h2>Proud Parents</h2>
+
+      <div class="parents-wrapper">
+        <!-- SLIDE 1 -->
+        <div class="parent-slide active">
+          <p>
+            “My son participated in classes to get ready for the state civil
+            service exam, and the coaching team provided him with utmost
+            assistance. I believe it is the finest coaching institute in the
+            city.”
+          </p>
+          <h4>— Roshan Goel</h4>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="parent-slide">
+          <p>
+            “The mentors here guided my daughter at every step of her
+            preparation. Their structured approach and constant motivation
+            made a huge difference.”
+          </p>
+          <h4>— Suresh Kumar</h4>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="parent-slide">
+          <p>
+            “AIM Study Circle focuses not just on academics but also on
+            confidence building. We are extremely happy with our child’s
+            progress.”
+          </p>
+          <h4>— Anjali Sharma</h4>
+        </div>
+      </div>
+
+      <!-- DOTS -->
+      <div class="parent-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </section>
+  </section>
+  <!--gallery-->
+  <section class="gallery-section" id="gallery">
+    <h2 class="section-title">Gallery</h2>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/736x/82/2b/55/822b5597d9e43b9b7989785c7873abec.jpg" alt="Classroom Session" />
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/736x/a7/9d/50/a79d50d4ffcfc1f969a119c0622f2119.jpg" alt="Students Seminar" />
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/1200x/01/84/5b/01845b707ff72934681f977f6c054f8f.jpg" alt="Faculty Lecture" />
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/736x/e4/b1/97/e4b1973eb353ada8e50ff758756b0e7b.jpg" alt="Group Discussion" />
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/736x/db/d9/f2/dbd9f26dc0e23f21ec0cb102332d4fa6.jpg" alt="Exam Preparation" />
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://i.pinimg.com/736x/b2/9b/dd/b29bdd30e4e7f4867a54ca843be7bd4a.jpg" alt="Motivation Session" />
+      </div>
+    </div>
+  </section>
+  <!--contact-->
+  <section class="contact-section" id="contact">
+    <h2 class="section-title">Contact Us</h2>
+
+    <div class="contact-info">
+      <div>
+        <h4>Contact Details</h4>
+        <p>+91 9876543210</p>
+        <p>aimstudycircle@gmail.com</p>
+      </div>
+
+      <div>
+        <h4>Address</h4>
+        <p>Area, City, Landmark, Pincode</p>
+      </div>
+
+      <div>
+        <h4>Business Hours</h4>
+        <p>Mon – Sun : 10:00 AM – 07:00 PM</p>
+      </div>
+    </div>
+
+    <form class="contact-form" onsubmit="submitForm(event)">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email ID" required />
+      <input type="tel" id="mobile" placeholder="Mobile Number" required />
+      <textarea id="message" placeholder="Message" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+  <!--footer-->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <!-- BRAND / CONTACT -->
+      <div class="footer-col brand">
+        <h2 class="logo">AIM <span>Study Circle</span></h2>
+        <p class="tagline">Right path for a Bright Career.</p>
+
+        <div class="contact">
+          <p>📞 +91 99890 74959 (Vizianagaram)</p>
+          <p>✉️ aimstudycircle@gmail.com</p>
+        </div>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- OTHER -->
+      <div class="footer-col">
+        <h4>Other Products</h4>
+        <ul>
+          <li><a href="#">Online Test Series</a></li>
+          <li><a href="#">Current Affairs</a></li>
+          <li><a href="#">Mock Interviews</a></li>
+          <li><a href="#">Study Materials</a></li>
+        </ul>
+      </div>
+
+      <!-- SOCIAL -->
+      <div class="footer-col">
+        <h4>Social Media</h4>
+        <ul class="social">
+          <li><a href="#">📷 Instagram</a></li>
+          <li><a href="#">▶️ YouTube</a></li>
+          <li><a href="#">💼 LinkedIn</a></li>
+        </ul>
+      </div>
+
+      <!-- OFFICES -->
+      <div class="footer-col">
+        <h4>Our Offices</h4>
+        <p>
+          <strong>📍 Vizianagaram</strong><br />
+          Kota durgha junction,<br />
+          Vijaynagaram – 535001
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 AIM Study Circle. All Rights Reserved.
+    </div>
+  </footer>
+  <!-- Fixed Enroll Button -->
+  <div class="fixed-enroll-btn" onclick="window.location.href='enroll.html'">
+    <span>📝 Enroll Now</span>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+
+</html>

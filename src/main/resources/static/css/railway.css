@@ -1,0 +1,596 @@
+/* ================= GLOBAL ================= */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:"Poppins",sans-serif;
+background:#f4f7fb;
+color:#222;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+/* ================= NAVBAR ================= */
+
+.top-nav{
+position:sticky;
+top:0;
+z-index:999;
+height:70px;
+background:#ffffff;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 60px;
+box-shadow:0 4px 15px rgba(0,0,0,.05);
+}
+
+.nav-logo{
+height:45px;
+width:auto;
+}
+
+/* MENU */
+.nav-menu{
+list-style:none;
+display:flex;
+gap:30px;
+align-items:center;
+}
+
+.nav-menu a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+position:relative;
+}
+
+.nav-menu a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+width:0;
+height:2px;
+background:#4b87d9;
+transition:.3s;
+}
+
+.nav-menu a:hover::after{
+width:100%;
+}
+
+/* DROPDOWN */
+.dropdown-menu{
+position:absolute;
+top:40px;
+left:0;
+background:#fff;
+list-style:none;
+padding:10px 0;
+border-radius:8px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+display:none;
+min-width:160px;
+}
+
+.dropdown:hover .dropdown-menu{
+display:block;
+}
+
+.dropdown-menu li{
+padding:10px 18px;
+}
+
+.dropdown-menu li:hover{
+background:#f3f6ff;
+}
+
+/* LOGIN BUTTON */
+.logout-btn{
+padding:10px 24px;
+border:none;
+border-radius:30px;
+background:linear-gradient(90deg,#ff6a3d,#ff7a59);
+color:#fff;
+cursor:pointer;
+transition:.3s;
+}
+
+.logout-btn:hover{
+transform:translateY(-2px);
+}
+/* ================= RESPONSIVE MEDIA QUERIES ================= */
+
+/* ----------- LARGE TABLET (1024px) ----------- */
+@media (max-width:1024px){
+
+.top-nav{
+padding:0 30px;
+}
+
+/* HERO STACK */
+.container{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-right img{
+width:320px;
+margin:auto;
+}
+
+/* ABOUT */
+.about-course{
+padding:70px 40px;
+}
+
+/* BENEFITS */
+.benefits-grid{
+grid-template-columns:repeat(2,1fr);
+max-width:700px;
+}
+
+/* USEFUL GRID CENTER FIX */
+.useful-grid{
+grid-template-columns:repeat(2,1fr);
+max-width:700px;
+margin:40px auto 0 auto;
+justify-content:center;
+}
+
+/* CALLBACK */
+.callback-container{
+flex-direction:column;
+text-align:center;
+}
+
+.callback-right{
+width:100%;
+}
+
+.input-row{
+flex-direction:column;
+}
+
+.footer-container{
+grid-template-columns:1fr 1fr;
+padding:0 40px;
+}
+
+}
+
+/* ----------- MOBILE (768px) ----------- */
+@media (max-width:768px){
+
+.course-hero,
+.about-course,
+.benefits-section,
+.useful-section,
+.callback-section{
+padding:60px 25px;
+}
+
+.title{
+font-size:34px;
+}
+
+.subtitle{
+font-size:16px;
+}
+
+.hero-right img{
+width:260px;
+}
+
+/* BENEFITS MOBILE */
+.benefits-grid{
+grid-template-columns:1fr;
+max-width:400px;
+margin:auto;
+align-items: center;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+/* USEFUL MOBILE CENTER */
+.useful-grid{
+grid-template-columns:1fr;
+max-width:400px;
+margin:auto;
+align-items: center;
+justify-content: center;
+flex-wrap: wrap;
+
+}
+
+/* NAV MENU STACK */
+.nav-menu{
+gap:18px;
+font-size:14px;
+}
+
+}
+
+/* ----------- SMALL MOBILE (480px) ----------- */
+@media (max-width:480px){
+
+.top-nav{
+padding:0 15px;
+}
+
+.nav-logo{
+height:32px;
+}
+
+.logout-btn{
+padding:8px 16px;
+font-size:13px;
+}
+
+.title{
+font-size:28px;
+}
+
+.about-title,
+.benefits-header h2,
+.useful-title{
+font-size:28px;
+}
+
+.footer-container{
+grid-template-columns:1fr;
+padding:0 20px;
+}
+
+}
+
+
+/* ================= HERO ================= */
+
+.course-hero{
+padding:80px 80px;
+background:linear-gradient(135deg,#f3f6fb,#e8edf7);
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.hero-left{
+max-width:550px;
+}
+
+.title{
+font-size:44px;
+font-weight:700;
+}
+
+.subtitle{
+color:#4b87d9;
+margin:10px 0 20px;
+}
+
+.desc{
+color:#555;
+line-height:1.7;
+}
+
+.enroll-btn{
+margin-top:25px;
+padding:12px 28px;
+border:none;
+border-radius:8px;
+background:linear-gradient(90deg,#4b87d9,#1b2c87);
+color:#fff;
+cursor:pointer;
+transition:.3s;
+}
+
+.enroll-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+
+.hero-right img{
+width:420px;
+animation:float 3s ease-in-out infinite;
+}
+
+/* ================= ABOUT ================= */
+
+.about-course{
+padding:80px 80px;
+background:#f5f7fb;
+max-width:1200px;
+margin:auto;
+}
+
+.about-title{
+font-size:38px;
+margin-bottom:20px;
+}
+
+.about-title span{
+color:#ff7a59;
+}
+
+.about-text{
+color:#555;
+line-height:1.8;
+margin-bottom:18px;
+}
+
+.learn-box{
+margin-top:40px;
+background:#eef1f6;
+padding:40px;
+border-radius:16px;
+}
+
+.learn-items{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.learn-items span{
+background:#fff;
+padding:12px 20px;
+border-radius:10px;
+border:1px solid #ddd;
+transition:.3s;
+}
+
+.learn-items span:hover{
+background:#4b87d9;
+color:#fff;
+}
+
+/* ================= BENEFITS ================= */
+
+.benefits-section{
+padding:80px 80px;
+text-align:center;
+background:#f5f7fb;
+}
+
+.benefits-header h2{
+font-size:38px;
+}
+
+.benefits-header span{
+color:#ff7a59;
+}
+
+.benefits-header p{
+max-width:520px;
+margin:15px auto 50px;
+color:#555;
+}
+
+.benefits-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.benefit-card{
+background:#fff;
+padding:30px;
+border-radius:16px;
+box-shadow:0 6px 20px rgba(0,0,0,.05);
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+transition:.3s;
+}
+
+.benefit-card:hover{
+transform:translateY(-6px);
+box-shadow:0 12px 25px rgba(0,0,0,.1);
+}
+
+.benefit-card img{
+width:70px;
+height:70px;
+object-fit:cover;
+border-radius:12px;
+margin-bottom:15px;
+}
+
+/* ================= USEFUL ================= */
+
+.useful-section{
+padding:80px 80px;
+text-align:center;
+}
+
+.useful-title{
+font-size:36px;
+}
+
+.useful-title span{
+color:#ff7a59;
+}
+
+.useful-grid{
+max-width:1100px;
+margin:50px auto 0;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.useful-card{
+background:#fff;
+padding:30px;
+border-radius:16px;
+box-shadow:0 6px 20px rgba(0,0,0,.05);
+transition:.3s;
+}
+
+.useful-card:hover{
+transform:translateY(-6px);
+box-shadow:0 12px 25px rgba(0,0,0,.1);
+}
+
+.useful-card img{
+width:70px;
+margin-bottom:12px;
+}
+
+/* ================= CALLBACK ================= */
+
+.callback-section{
+padding:80px;
+}
+
+.callback-container{
+max-width:1200px;
+margin:auto;
+background:linear-gradient(135deg,#cfd8e6,#b9c3d8);
+border-radius:30px;
+padding:40px 60px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:30px;
+}
+
+.callback-left img{
+width:260px;
+}
+
+.callback-right{
+flex:1;
+}
+
+.input-row{
+display:flex;
+gap:15px;
+}
+
+.callback-right input{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+.callback-right button{
+background:linear-gradient(90deg,#4b87d9,#1b2c87);
+border:none;
+color:#fff;
+padding:12px 28px;
+border-radius:8px;
+cursor:pointer;
+float:right;
+}
+
+/* ================= FOOTER ================= */
+
+.site-footer{
+background:linear-gradient(180deg,#050b1e,#020617);
+color:#cbd5e1;
+padding-top:80px;
+}
+
+.footer-container{
+max-width:1300px;
+margin:auto;
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1fr 2fr;
+gap:40px;
+padding:0 60px;
+}
+
+.footer-bottom{
+margin-top:60px;
+padding:20px;
+text-align:center;
+background:#020617;
+color:#94a3b8;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0);}
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1024px){
+
+.container{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-right img{
+width:300px;
+}
+
+.benefits-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.useful-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.footer-container{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+@media(max-width:600px){
+
+.top-nav{
+padding:0 20px;
+}
+
+.course-hero,
+.about-course,
+.benefits-section,
+.useful-section,
+.callback-section{
+padding:60px 20px;
+}
+
+.benefits-grid,
+.useful-grid{
+grid-template-columns:1fr;
+}
+
+.input-row{
+flex-direction:column;
+}
+
+.footer-container{
+grid-template-columns:1fr;
+padding:0 20px;
+}
+
+}

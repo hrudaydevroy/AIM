@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin",
+      "email": "admin@example.com",
+      "password": "password123"
+    }
+  ],
+  "leads": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "phone": "555-1234",
+      "message": "Interested in web development course"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "phone": "555-5678",
+      "message": "Looking for data science training"
+    },
+    {
+        
+    }
+  ]
+}

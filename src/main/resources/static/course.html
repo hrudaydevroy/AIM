@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Course Details</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">AIM Study Circle</div>
+</nav>
+
+<section class="section">
+  <h2 id="courseTitle"></h2>
+  <p>Complete coaching with expert faculty, tests & guidance.</p>
+
+  <h3>Exams Covered</h3>
+  <p>SBI | IBPS | SSC | RRB | Police</p>
+</section>
+
+<footer>© AIM Study Circle</footer>
+
+<script>
+  document.getElementById("courseTitle").innerText =
+    localStorage.getItem("selectedCourse") + " Course";
+</script>
+
+</body>
+</html>

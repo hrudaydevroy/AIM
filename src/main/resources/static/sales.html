@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sales Dashboard</title>
+
+    <style>
+        body {
+            font-family: Segoe UI;
+            background: #eef2ff;
+            padding: 20px;
+        }
+
+        .navbar {
+            background: #4f46e5;
+            color: white;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar-logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .navbar h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .home-btn, .logout-btn {
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .home-btn {
+            background: #6366f1;
+        }
+
+        .home-btn:hover {
+            background: #818cf8;
+        }
+
+        .logout-btn {
+            background: #ef4444;
+        }
+
+        .logout-btn:hover {
+            background: #dc2626;
+        }
+
+        .card {
+            background: #f8fbff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #c7d2fe;
+        }
+
+        button {
+            padding: 6px 10px;
+            border: none;
+            border-radius: 6px;
+            background: #4f46e5;
+            color: white;
+            cursor: pointer;
+        }
+
+        .delete {
+            background: #ef4444;
+        }
+
+        input,
+        select {
+            padding: 8px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img src="a-i-m-high-resolution-logo-transparent.png" alt="AIM Logo" class="navbar-logo" onerror="this.style.display='none'">
+            <h2>📞 Sales Dashboard</h2>
+        </div>
+        <div class="navbar-right">
+            <a href="index.html" class="home-btn">🏠 Home</a>
+            <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+        </div>
+    </div>
+
+    <!-- ================= LEADS ================= -->
+    <div class="card">
+        <h2>Student Leads (Sales Panel)</h2>
+
+        <table id="leadTable">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Degree</th>
+                <th>Message</th>
+                <th>Action</th>
+            </tr>
+        </table>
+    </div>
+
+    <!-- ================= VIDEO UPLOAD ================= -->
+    <div class="card">
+
+        <h2>Upload Course Video</h2>
+
+        <input id="title" placeholder="Video Title">
+        <input id="url" placeholder="YouTube Embed URL">
+
+        <select id="batch">
+            <option>Batch-1</option>
+            <option>Batch-2</option>
+            <option>Batch-3</option>
+        </select>
+
+        <input id="course" placeholder="Course Name">
+
+        <button onclick="uploadVideo()">Upload Video</button>
+
+    </div>
+
+    <!-- ================= VIDEO TABLE ================= -->
+    <div class="card">
+
+        <h2>Uploaded Videos</h2>
+
+        <table id="videoTable">
+            <tr>
+                <th>Title</th>
+                <th>Batch</th>
+                <th>Course</th>
+                <th>Action</th>
+            </tr>
+        </table>
+
+    </div>
+    <!--student registration-->
+    <div class="card">
+        <h2>Register New Student</h2>
+        <input type="file" id="simage">
+
+        <input id="sname" placeholder="Name">
+        <input id="semail" placeholder="Email">
+        <input id="sphone" placeholder="Phone Number">
+        <input id="sguard" placeholder="Guardian Number">
+
+        <input id="sinstitute" placeholder="Institute">
+        <input id="squal" placeholder="Highest Qualification">
+        <input id="syear" placeholder="Year of Passing">
+        <input id="scgpa" placeholder="CGPA">
+
+        <select id="smode">
+            <option>Offline</option>
+            <option>Online</option>
+        </select>
+
+        <input id="sjoin" type="date">
+
+        <select id="sbatch">
+            <option>Batch-1</option>
+            <option>Batch-2</option>
+            <option>Batch-3</option>
+        </select>
+
+        <input id="scourse" placeholder="Course">
+
+        <input id="suser" placeholder="Assigned Unique ID">
+        <input id="spass" placeholder="Assigned Password">
+
+        <button onclick="addStudent()">Add Student</button>
+    </div>
+    <div class="card">
+        <h2>Enrolled Students List</h2>
+
+        <table id="studentTable">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Batch</th>
+                <th>Course</th>
+                <th>Added By</th>
+                <th>Action</th>
+            </tr>
+        </table>
+
+    </div>
+
+    <!-- ================= ADD ATTENDANCE ================= -->
+    <div class="card">
+        <h2>Add Attendance for Batch</h2>
+        
+        <select id="attBatch" required>
+            <option value="">Select Batch</option>
+            <option value="Batch-1">Batch-1</option>
+            <option value="Batch-2">Batch-2</option>
+            <option value="Batch-3">Batch-3</option>
+        </select>
+
+        <input id="attModule" placeholder="Module (e.g., React, Java, JavaScript)" required>
+        <input id="attTopic" placeholder="Topic (e.g., react intro, Transactions in JDBC)" required>
+        <input id="attInstructor" placeholder="Instructor Name" required>
+        <input id="attDate" type="date" required>
+        <input id="attTime" type="time" required>
+
+        <select id="attStatus" required>
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+            <option value="Pending">Pending</option>
+        </select>
+
+        <textarea id="attNotes" placeholder="Notes (Optional)" rows="3"></textarea>
+
+        <button onclick="addAttendanceForBatch()">Add Attendance for Batch</button>
+        <p id="attMsg" style="color: #ef4444; font-size: 14px; margin-top: 10px;"></p>
+    </div>
+
+    <!-- ================= ADD ASSIGNMENT ================= -->
+    <div class="card">
+        <h2>Post Assignment</h2>
+        
+        <select id="assignBatch" required>
+            <option value="">Select Batch</option>
+            <option value="Batch-1">Batch-1</option>
+            <option value="Batch-2">Batch-2</option>
+            <option value="Batch-3">Batch-3</option>
+        </select>
+
+        <input id="assignModule" placeholder="Module" required>
+        <input id="assignTopic" placeholder="Topic" required>
+        <input id="assignTitle" placeholder="Assignment Title" required>
+        <textarea id="assignDesc" placeholder="Description" rows="3" required></textarea>
+        <input id="assignDueDate" type="date" placeholder="Due Date" required>
+
+        <button onclick="addAssignment()">Post Assignment</button>
+        <p id="assignMsg" style="color: #ef4444; font-size: 14px; margin-top: 10px;"></p>
+    </div>
+
+    <!-- ================= ADD NOTE ================= -->
+    <div class="card">
+        <h2>Post Notes</h2>
+        
+        <select id="noteBatch" required>
+            <option value="">Select Batch</option>
+            <option value="Batch-1">Batch-1</option>
+            <option value="Batch-2">Batch-2</option>
+            <option value="Batch-3">Batch-3</option>
+        </select>
+
+        <input id="noteModule" placeholder="Module" required>
+        <input id="noteTopic" placeholder="Topic" required>
+        <input id="noteTitle" placeholder="Note Title" required>
+        <textarea id="noteContent" placeholder="Note Content" rows="5" required></textarea>
+
+        <button onclick="addNote()">Post Note</button>
+        <p id="noteMsg" style="color: #ef4444; font-size: 14px; margin-top: 10px;"></p>
+    </div>
+
+
+    <script>
+
+        /* ================= LOAD LEADS ================= */
+
+        fetch("http://localhost:5000/api/leads")
+            .then(res => res.json())
+            .then(data => {
+
+                const table = document.getElementById("leadTable");
+
+                data.forEach(l => {
+                    table.innerHTML += `
+ <tr>
+  <td>${l.name}</td>
+  <td>${l.email}</td>
+  <td>${l.mobile}</td>
+  <td>${l.degree}</td>
+  <td>${l.message}</td>
+  <td>
+   <button onclick="updateStatus('${l._id}','Called')">Call</button>
+   <button onclick="updateStatus('${l._id}','Joined')">Joined</button>
+  </td>
+ </tr>
+ `;
+                });
+
+            });
+
+        function updateStatus(id, status) {
+
+            fetch("http://localhost:5000/api/leads/" + id, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ status })
+            })
+                .then(() => location.reload());
+        }
+
+        /* ================= VIDEO UPLOAD ================= */
+
+        function uploadVideo() {
+            const title = document.getElementById("title").value;
+            const url = document.getElementById("url").value;
+            const batch = document.getElementById("batch").value;
+            const course = document.getElementById("course").value;
+
+            if(!title || !url || !batch || !course){
+                alert("Please fill all fields");
+                return;
+            }
+
+            const data = {
+                title: title,
+                url: url,
+                batch: batch,
+                course: course
+            };
+
+            fetch("http://localhost:5000/api/videos", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            })
+            .then(async res => {
+                const data = await res.json();
+                if(!res.ok) throw new Error(data.msg || "Failed to upload video");
+                return data;
+            })
+            .then(() => {
+                alert("Video Uploaded Successfully ✅\n\nStudents in " + batch + " can now view this video.");
+                // Clear form
+                document.getElementById("title").value = "";
+                document.getElementById("url").value = "";
+                document.getElementById("course").value = "";
+                // Reload video list
+                setTimeout(() => {
+                    const vtable = document.getElementById("videoTable");
+                    const headerRow = vtable.querySelector("tr");
+                    vtable.innerHTML = "";
+                    vtable.appendChild(headerRow);
+                    loadVideoTable();
+                }, 500);
+            })
+            .catch(err => {
+                alert("Error: " + err.message);
+            });
+        }
+
+        /* ================= LOAD VIDEO TABLE ================= */
+        function loadVideoTable(){
+            fetch("http://localhost:5000/api/videos")
+                .then(res => res.json())
+                .then(videos => {
+                    const vtable = document.getElementById("videoTable");
+                    // Clear existing rows except header
+                    const headerRow = vtable.querySelector("tr");
+                    vtable.innerHTML = "";
+                    vtable.appendChild(headerRow);
+                    
+                    if(videos.length === 0){
+                        vtable.innerHTML += `<tr><td colspan="4" style="text-align:center; padding:20px;">No videos uploaded yet</td></tr>`;
+                        return;
+                    }
+                    
+                    videos.forEach(v => {
+                        vtable.innerHTML += `
+                            <tr>
+                            <td>${v.title || 'N/A'}</td>
+                            <td>${v.batch || 'N/A'}</td>
+                            <td>${v.course || 'N/A'}</td>
+                            <td>
+                                <button class="delete" onclick="deleteVideo('${v._id}')">Delete</button>
+                            </td>
+                            </tr>
+                        `;
+                    });
+                })
+                .catch(err => {
+                    console.error("Error loading videos:", err);
+                });
+        }
+
+        // Load videos on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            if(document.getElementById("videoTable")){
+                loadVideoTable();
+            }
+        });
+
+        function deleteVideo(id) {
+            if(confirm("Are you sure you want to delete this video?")){
+                fetch("http://localhost:5000/api/videos/" + id, {
+                    method: "DELETE"
+                })
+                .then(() => {
+                    alert("Video deleted successfully");
+                    loadVideoTable();
+                })
+                .catch(err => {
+                    alert("Error deleting video: " + err.message);
+                });
+            }
+        }
+        function addStudent() {
+            const name = document.getElementById("sname").value;
+            const username = document.getElementById("suser").value;
+            const password = document.getElementById("spass").value;
+            const batch = document.getElementById("sbatch").value;
+            const course = document.getElementById("scourse").value;
+
+            if(!name || !username || !password || !batch || !course){
+                alert("Please fill all required fields (Name, Username, Password, Batch, Course)");
+                return;
+            }
+
+            const form = new FormData();
+            form.append("createdBy", "sales");
+            form.append("name", name);
+            form.append("email", document.getElementById("semail").value || "");
+            form.append("phone", document.getElementById("sphone").value || "");
+            form.append("guardian", document.getElementById("sguard").value || "");
+
+            form.append("institute", document.getElementById("sinstitute").value || "");
+            form.append("qualification", document.getElementById("squal").value || "");
+            form.append("year", document.getElementById("syear").value || "");
+            form.append("cgpa", document.getElementById("scgpa").value || "");
+
+            form.append("mode", document.getElementById("smode").value || "Offline");
+            form.append("joiningDate", document.getElementById("sjoin").value || "");
+
+            form.append("batch", batch);
+            form.append("course", course);
+
+            form.append("username", username);
+            form.append("password", password);
+
+            const file = document.getElementById("simage").files[0];
+            if (file) form.append("image", file);
+
+            fetch("http://localhost:5000/api/students", {
+                method: "POST",
+                body: form
+            })
+            .then(async res => {
+                const data = await res.json();
+                if(!res.ok) throw new Error(data.msg || "Failed to add student");
+                return data;
+            })
+            .then(() => {
+                alert("Student Added Successfully ✅");
+                // Reload student list
+                setTimeout(() => loadStudents(), 500);
+            })
+            .catch(err => {
+                alert("Error: " + err.message);
+            });
+        }
+        /* ===== LOAD STUDENTS ===== */
+        function loadStudents(){
+            fetch("http://localhost:5000/api/students")
+                .then(res => res.json())
+                .then(data => {
+                    const table = document.getElementById("studentTable");
+                    // Clear existing rows except header
+                    const headerRow = table.querySelector("tr");
+                    table.innerHTML = "";
+                    table.appendChild(headerRow);
+
+                    if(data.length === 0){
+                        table.innerHTML += `<tr><td colspan="7" style="text-align:center; padding:20px;">No students enrolled yet</td></tr>`;
+                        return;
+                    }
+
+                    data.forEach(s => {
+                        table.innerHTML += `
+  <tr>
+   <td>${s.name || 'N/A'}</td>
+   <td>${s.email || 'N/A'}</td>
+   <td><strong>${s.username || 'N/A'}</strong></td>
+   <td>${s.batch || 'N/A'}</td>
+   <td>${s.course || 'N/A'}</td>
+   <td>${s.createdBy || 'N/A'}</td>
+   <td>
+     <button class="delete" onclick="deleteStudent('${s._id}')">Delete</button>
+   </td>
+  </tr>
+  `;
+                    });
+                })
+                .catch(err => {
+                    console.error("Error loading students:", err);
+                    const table = document.getElementById("studentTable");
+                    table.innerHTML += `<tr><td colspan="7" style="text-align:center; color:#ef4444;">Error loading students</td></tr>`;
+                });
+        }
+
+        // Load students on page load
+        loadStudents();
+        /*delete student*/
+        function deleteStudent(id) {
+            if(confirm("Are you sure you want to delete this student?")){
+                fetch("http://localhost:5000/api/students/" + id, {
+                    method: "DELETE"
+                })
+                .then(() => {
+                    alert("Student deleted successfully");
+                    loadStudents();
+                })
+                .catch(err => {
+                    alert("Error deleting student: " + err.message);
+                });
+            }
+        }
+
+        /* ===== ADD ATTENDANCE FOR BATCH ===== */
+        function addAttendanceForBatch(){
+            const msg = document.getElementById("attMsg");
+            msg.innerText = "";
+
+            const batch = document.getElementById("attBatch").value;
+            const module = document.getElementById("attModule").value;
+            const topic = document.getElementById("attTopic").value;
+            const instructor = document.getElementById("attInstructor").value;
+            const date = document.getElementById("attDate").value;
+            const time = document.getElementById("attTime").value;
+            const status = document.getElementById("attStatus").value;
+            const notes = document.getElementById("attNotes").value;
+
+            if(!batch || !module || !topic || !instructor || !date || !time){
+                msg.innerText = "Please fill all required fields";
+                return;
+            }
+
+            // Get all students in the batch
+            fetch(`http://localhost:5000/api/students?batch=${batch}`)
+            .then(res => res.json())
+            .then(students => {
+                if(students.length === 0){
+                    msg.innerText = "No students found in this batch";
+                    return;
+                }
+
+                const studentIds = students.map(s => s._id);
+                
+                // Create attendance records for all students
+                fetch("http://localhost:5000/api/attendance/bulk", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        students: studentIds,
+                        module,
+                        topic,
+                        status,
+                        instructor,
+                        date,
+                        time,
+                        batch,
+                        course: students[0].course || "",
+                        createdBy: "sales",
+                        notes
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    msg.innerText = `Attendance added for ${data.length} students ✅`;
+                    msg.style.color = "#10b981";
+                    // Clear form
+                    document.getElementById("attModule").value = "";
+                    document.getElementById("attTopic").value = "";
+                    document.getElementById("attInstructor").value = "";
+                    document.getElementById("attNotes").value = "";
+                })
+                .catch(err => {
+                    msg.innerText = "Error: " + err.message;
+                });
+            })
+            .catch(err => {
+                msg.innerText = "Error loading students: " + err.message;
+            });
+        }
+
+        /* ===== ADD ASSIGNMENT ===== */
+        function addAssignment(){
+            const msg = document.getElementById("assignMsg");
+            msg.innerText = "";
+
+            const batch = document.getElementById("assignBatch").value;
+            const module = document.getElementById("assignModule").value;
+            const topic = document.getElementById("assignTopic").value;
+            const title = document.getElementById("assignTitle").value;
+            const description = document.getElementById("assignDesc").value;
+            const dueDate = document.getElementById("assignDueDate").value;
+
+            if(!batch || !module || !title || !description || !dueDate){
+                msg.innerText = "Please fill all required fields";
+                return;
+            }
+
+            fetch("http://localhost:5000/api/assignments", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    title,
+                    description,
+                    module,
+                    topic,
+                    batch,
+                    course: "",
+                    dueDate,
+                    status: "Pending",
+                    createdBy: "sales",
+                    assignedTo: [] // Empty array means all students in batch
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                msg.innerText = "Assignment posted successfully ✅";
+                msg.style.color = "#10b981";
+                // Clear form
+                document.getElementById("assignModule").value = "";
+                document.getElementById("assignTopic").value = "";
+                document.getElementById("assignTitle").value = "";
+                document.getElementById("assignDesc").value = "";
+            })
+            .catch(err => {
+                msg.innerText = "Error: " + err.message;
+            });
+        }
+
+        /* ===== ADD NOTE ===== */
+        function addNote(){
+            const msg = document.getElementById("noteMsg");
+            msg.innerText = "";
+
+            const batch = document.getElementById("noteBatch").value;
+            const module = document.getElementById("noteModule").value;
+            const topic = document.getElementById("noteTopic").value;
+            const title = document.getElementById("noteTitle").value;
+            const content = document.getElementById("noteContent").value;
+
+            if(!batch || !module || !title || !content){
+                msg.innerText = "Please fill all required fields";
+                return;
+            }
+
+            fetch("http://localhost:5000/api/notes", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    title,
+                    content,
+                    module,
+                    topic,
+                    batch,
+                    course: "",
+                    createdBy: "sales",
+                    assignedTo: [] // Empty array means all students in batch
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                msg.innerText = "Note posted successfully ✅";
+                msg.style.color = "#10b981";
+                // Clear form
+                document.getElementById("noteModule").value = "";
+                document.getElementById("noteTopic").value = "";
+                document.getElementById("noteTitle").value = "";
+                document.getElementById("noteContent").value = "";
+            })
+            .catch(err => {
+                msg.innerText = "Error: " + err.message;
+            });
+        }
+
+        /* ===== LOGOUT ===== */
+        function logout(){
+            if(confirm("Are you sure you want to logout?")){
+                localStorage.clear();
+                window.location="login.html";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

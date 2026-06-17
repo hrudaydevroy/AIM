@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Server Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: 50px auto;
+    }
+    button {
+      padding: 10px 20px;
+      background: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px 5px;
+    }
+    #result {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background: #f3f4f6;
+    }
+    .success { background: #d1fae5; color: #065f46; }
+    .error { background: #fee2e2; color: #991b1b; }
+  </style>
+</head>
+<body>
+  <h1>Backend Server Test</h1>
+  <button onclick="testServer()">Test Server Connection</button>
+  <button onclick="testRegister()">Test Registration</button>
+  <div id="result"></div>
+
+  <script>
+    async function testServer() {
+      const result = document.getElementById("result");
+      result.innerHTML = "Testing...";
+      result.className = "";
+      
+      try {
+        const res = await fetch("http://localhost:5000/api/test");
+        const data = await res.json();
+        result.innerHTML = `<strong>✅ Success!</strong><br>${JSON.stringify(data, null, 2)}`;
+        result.className = "success";
+      } catch (err) {
+        result.innerHTML = `<strong>❌ Failed!</strong><br>Error: ${err.message}<br><br>
+          <strong>Make sure:</strong><br>
+          1. Backend server is running: <code>cd backend && node server.js</code><br>
+          2. Server is listening on port 5000<br>
+          3. No firewall is blocking the connection`;
+        result.className = "error";
+      }
+    }
+
+    async function testRegister() {
+      const result = document.getElementById("result");
+      result.innerHTML = "Testing registration...";
+      result.className = "";
+      
+      try {
+        const res = await fetch("http://localhost:5000/api/auth/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: "Test User",
+            email: "test@test.com",
+            password: "test123"
+          })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          result.innerHTML = `<strong>✅ Registration Works!</strong><br>${JSON.stringify(data, null, 2)}`;
+          result.className = "success";
+        } else {
+          result.innerHTML = `<strong>⚠️ Response:</strong><br>${JSON.stringify(data, null, 2)}`;
+          result.className = "error";
+        }
+      } catch (err) {
+        result.innerHTML = `<strong>❌ Registration Failed!</strong><br>Error: ${err.message}`;
+        result.className = "error";
+      }
+    }
+  </script>
+</body>
+</html>
